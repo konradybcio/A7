@@ -102,6 +102,7 @@ ARM64_REG_HID8 |= (HID8_DATASET_ID0_VALUE | HID8_DATASET_ID1_VALUE)
 
 ## WFI is giga broken on A7/A8. Disable it so we don't have to hack on Linux. With this setting the cores don't completely turn off, they are only clock-gated instead.
 ```
+// Corellium A10 Linux port also runs bitclear CYC_OVRD_OK2PWRDN_FORCE_DOWN
 ARM64_REG_CYC_OVRD |= CYC_OVRD_OK2PWRDN_FORCE_UP
 ```
 
