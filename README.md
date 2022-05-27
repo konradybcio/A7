@@ -37,10 +37,13 @@ ARM64_REG_HID3 - S3_0_C15_C3_0
         HID3_DISABLE_XMON_SNP_EVICT_TRIGGER_L2_STARVATION_MODE  BIT(54)
 
 ARM64_REG_HID4 - S3_0_C15_C4_0
-        HID4_DISABLE_DC_MVA                                     BIT(11)
+        # Disables Clean & Invalidate (dc ci* instructions)
+        # NOTE: Cache Clean (dc cv*) instructions
+        # (or at least dc cvac) are a NOP on (at least) Cyclone
+        HID4_DISABLE_DATA_CACHE_MVA                             BIT(11)
         HID4_DISABLE_SPEC_LAUNCH_READ                           BIT(33)
         HID4_FORCE_NS_ORD_LD_REQ_NO_OLDER_LOAD                  BIT(39)
-        HID4_DISABLE_DC_SW_L2_OPS                               BIT(44)
+        HID4_DISABLE_DATA_CACHE_SW_L2_OPS                       BIT(44)
 
 ARM64_REG_HID5 - S3_0_C15_C5_0
         HID5_DISABLE_HWP_LOAD                                   BIT(44)
